@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live 2D Finite Element Analysis Playground</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="sidebar">
+        <div class="header">
+            <h1>FEA Playground 2D</h1>
+            <p>Interactive Structural Mechanics Engine</p>
+        </div>
+        <div class="scroll-container">
+            
+            <div>
+                <div class="section-title">Interaction Mode</div>
+                <div class="btn-group">
+                    <button class="btn active" data-mode="draw">Draw Beam</button>
+                    <button class="btn" data-mode="support_fixed">Fix Support</button>
+                    <button class="btn" data-mode="support_pinned">Pin Support</button>
+                    <button class="btn" data-mode="force">Apply Load</button>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-title">Material Profile</div>
+                <div class="control-group">
+                    <label>Preset Profile</label>
+                    <select id="material-preset">
+                        <option value="steel">Structural Steel (E=200 GPa)</option>
+                        <option value="aluminum">Aluminum Alloy (E=70 GPa)</option>
+                        <option value="concrete">Concrete (E=30 GPa)</option>
+                    </select>
+                </div>
+                <div style="margin-top: 12px;" class="control-group">
+                    <label>Section Depth <span>(m)</span></label>
+                    <input type="range" id="param-depth" min="0.05" max="0.5" step="0.01" value="0.2">
+                </div>
+            </div>
+
+            <div>
+                <div class="section-title">Analysis Mode</div>
+                <div class="control-group">
+                    <label>Solver State</label>
+                    <select id="analysis-type">
+                        <option value="static">Static Linear Deflection</option>
+                        <option value="modal_1">Resonant Mode 1</option>
+                        <option value="modal_2">Resonant Mode 2</option>
+                        <option value="modal_3">Resonant Mode 3</option>
+                    </select>
+                </div>
+                <div style="margin-top: 12px;" class="control-group">
+                    <label>Mesh Density <span>(Elements)</span></label>
+                    <input type="range" id="param-mesh" min="1" max="15" step="1" value="6">
+                </div>
+                <div style="margin-top: 12px;" class="control-group">
+                    <label>Deformation Scale</label>
+                    <input type="range" id="param-scale" min="1" max="200" step="5" value="50">
+                </div>
+            </div>
+
+            <div>
+                <div class="section-title">Utilities</div>
+                <div class="btn-group">
+                    <button class="btn" id="btn-svg">Export SVG</button>
+                    <button class="btn" id="btn-png">Export PNG</button>
+                    <button class="btn btn-danger" id="btn-clear">Clear Workspace</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="credits">
+            Engineered by <span>Nabil Khondaker Ahmad</span>
+        </div>
+    </div>
+
+    <div id="workspace">
+        <canvas id="feaCanvas"></canvas>
+        
+        <div id="status-bar" class="glass-panel">
+            <div>Nodes: <span id="stat-nodes">0</span></div>
+            <div>Elements: <span id="stat-elements">0</span></div>
+            <div>Status: <span id="stat-solver" style="color: #4ade80;">Stable</span></div>
+        </div>
+
+        <div id="legend" class="glass-panel">
+            <div class="legend-title" id="legend-title">Bending Stress (σ)</div>
+            <div class="legend-bar"></div>
+            <div class="legend-labels">
+                <span>0.0</span>
+                <span id="legend-max">0.00 MPa</span>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+:root {
+    --bg-main: #090d16;
+    --bg-sidebar: #111726;
+    --bg-card: #1b2438;
+    --accent: #3b82f6;
+    --accent-glow: rgba(59, 130, 246, 0.4);
+    --accent-success: #10b981;
+    --accent-error: #ef4444;
+    --text-main: #f8fafc;
+    --text-muted: #64748b;
+    --border: #243149;
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+}
+
+#sidebar {
+    width: 340px;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+    padding: 24px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(27,36,56,0.2) 0%, rgba(0,0,0,0) 100%);
+}
+
+.header h1 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+.scroll-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.scroll-container::-webkit-scrollbar { width: 6px; }
+.scroll-container::-webkit-scrollbar-track { background: transparent; }
+.scroll-container::-webkit-scrollbar-thumb { background: var(--border); border-radius: 20px; }
+
+.section-title {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #3b82f6;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.btn-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    background: var(--bg-card);
+    color: #cbd5e1;
+    border: 1px solid var(--border);
+    padding: 12px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    background: #222d46;
+    border-color: #475569;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active { transform: translateY(0); }
+
+.btn.active {
+    background: linear-gradient(135deg, var(--accent) 0%, #1d4ed8 100%);
+    border-color: var(--accent);
+    color: white;
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.btn-danger {
+    grid-column: span 2;
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    border-color: #b91c1c;
+    color: #fca5a5;
+}
+.btn-danger:hover {
+    background: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%);
+    border-color: #ef4444;
+    color: #fff;
+}
+
+.control-group {
+    background: rgba(27, 36, 56, 0.4);
+    padding: 14px;
+    border-radius: var(--radius);
+    border: 1px solid rgba(36, 49, 73, 0.5);
+    transition: border-color 0.2s;
+}
+
+.control-group:hover { border-color: rgba(59, 130, 246, 0.3); }
+
+.control-group label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.control-group label span { color: var(--text-muted); font-family: monospace; }
+
+input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+    background: var(--bg-main);
+    height: 6px;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+input[type="range"]:hover { filter: brightness(1.2); }
+
+select {
+    width: 100%;
+    background: var(--bg-main);
+    color: white;
+    border: 1px solid var(--border);
+    padding: 10px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+select:hover, select:focus { border-color: var(--accent); }
+
+#workspace {
+    flex: 1;
+    position: relative;
+    height: 100%;
+}
+
+/* Dynamic State Context Cursors */
+canvas { 
+    width: 100%; 
+    height: 100%; 
+    display: block; 
+    background-color: var(--bg-main);
+}
+canvas.mode-draw { cursor: crosshair; }
+canvas.mode-support_fixed { cursor: cell; }
+canvas.mode-support_pinned { cursor: cell; }
+canvas.mode-force { cursor: alias; }
+
+.glass-panel {
+    background: rgba(17, 23, 38, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    pointer-events: none;
+    position: absolute;
+}
+
+#status-bar {
+    top: 24px;
+    left: 24px;
+    padding: 12px 20px;
+    display: flex;
+    gap: 24px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+#status-bar div span { font-family: monospace; color: #fff; }
+
+#legend {
+    bottom: 24px;
+    right: 24px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 220px;
+}
+
+.legend-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.legend-bar {
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to right, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000);
+    border-radius: 20px;
+}
+
+.legend-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-family: monospace;
+    color: #94a3b8;
+}
+
+.credits {
+    padding: 20px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    background-color: rgba(9, 13, 22, 0.5);
+    text-align: center;
+    font-weight: 500;
+}
+
+.credits span {
+    color: #fff;
+    font-weight: 700;
+    display: block;
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+}
