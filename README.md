@@ -39,6 +39,7 @@ The interface wraps high-level structural computing inside a premium, custom-des
 The codebase follows strict decoupled software design principles, separating mathematical execution loops from layout presentation layers:
 
 ```text
+│   index.html
 ├── core/
 │   ├── physics/         # Young's Modulus (E), cross-sections, and material profiles
 │   ├── math/            # Global matrix assembly solvers & linear algebra algorithms
