@@ -2,17 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Live 2D Finite Element Analysis Playground</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="public/css/layout/global.css">
+    <link rel="stylesheet" href="public/css/panels/glassmorphism.css">
+    <link rel="stylesheet" href="public/css/inputs/fields.css">
+    <link rel="stylesheet" href="public/css/inputs/triggers.css">
+    <link rel="stylesheet" href="public/css/animation/gears.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="sidebar">
-        <div class="header">
-            <h1>FEA Playground 2D</h1>
-            <p>Interactive Structural Mechanics Engine</p>
+<div id="clear-transition-overlay">
+    <div class="gear-system-assembly">
+        <div class="ring-gear"></div>
+        <div class="sun-gear"></div>
+        <div class="planet-carrier">
+            <div class="planet-gear"></div>
+            <div class="planet-gear"></div>
+            <div class="planet-gear"></div>
         </div>
+    </div>
+    <div class="clear-signature">nabilkhondaker©</div>
+</div>
+
+    <div id="sidebar">
+<div class="header">
+    <div class="logo-container">
+        <div class="logo-graphic">
+            <span class="poly-solid"></span>
+            <span class="poly-outline"></span>
+        </div>
+        <div class="logo-text">
+            <h1>FEAPLAYGROUND<span>2D</span></h1>
+            <p>v1.0.0 — ULTRA-HIGH HARDWARE ACCELERATED</p>
+        </div>
+    </div>
+</div>
         <div class="scroll-container">
             
             <div>
@@ -62,14 +90,14 @@
                 </div>
             </div>
 
-            <div>
-                <div class="section-title">Utilities</div>
-                <div class="btn-group">
-                    <button class="btn" id="btn-svg">Export SVG</button>
-                    <button class="btn" id="btn-png">Export PNG</button>
-                    <button class="btn btn-danger" id="btn-clear">Clear Workspace</button>
-                </div>
-            </div>
+<div>
+    <div class="section-title">Utilities</div>
+    <div class="btn-group">
+        <button class="btn" id="btn-svg">Export SVG</button>
+        <button class="btn" id="btn-png">Export PNG</button>
+        <button class="btn btn-danger" id="btn-clear">Clear Workspace</button>
+    </div>
+</div>
         </div>
 
         <div class="credits">
@@ -86,6 +114,14 @@
             <div>Status: <span id="stat-solver" style="color: #4ade80;">Stable</span></div>
         </div>
 
+        <div id="telemetry-panel" class="glass-panel">
+            <div class="telemetry-header">
+                <div class="legend-title" style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px; color: #cbd5e1;">Signal Telemetry Tracker</div>
+                <div id="telemetry-val">0.00 STRN</div>
+            </div>
+            <canvas id="telemetryCanvas"></canvas>
+        </div>
+
         <div id="legend" class="glass-panel">
             <div class="legend-title" id="legend-title">Bending Stress (σ)</div>
             <div class="legend-bar"></div>
@@ -96,6 +132,9 @@
         </div>
     </div>
 
-    <script type="module" src="js/main.js"></script>
+    <script type="module">
+        import { init } from './view/canvas/renderEngine.js';
+        init();
+    </script>
 </body>
 </html>

@@ -1,0 +1,82 @@
+#clear-transition-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(3, 5, 10, 0.94);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    gap: 20px; 
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#clear-transition-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* --- Premium Glossy Frosted White Calligraphy Signature --- */
+.clear-signature {
+    font-family: 'Alex Brush', cursive;
+    font-size: 3.2rem; /* Scaled up slightly for better contrast visibility */
+    font-weight: 500;
+    
+    /* Frosted glass text core definition */
+    color: rgba(255, 255, 255, 0.35);
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.2);
+    
+    letter-spacing: 1.5px;
+    transform: translateY(15px);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease;
+}
+
+/* Animate and illuminate with glossy sub-pixel specular highlights on active clearance */
+#clear-transition-overlay.active .clear-signature {
+    transform: translateY(0);
+    opacity: 1;
+    
+    /* Frosted illumination: Soft center blend with high-intensity edge gloss */
+    color: rgba(255, 255, 255, 0.88);
+    text-shadow: 
+        0 0 1px rgba(255, 255, 255, 0.9),  /* Edge crispness */
+        0 2px 4px rgba(0, 0, 0, 0.4),       /* Dropped floor separation shadow */
+        0 0 20px rgba(255, 255, 255, 0.3),  /* Radial frosted glow */
+        0 0 40px rgba(59, 130, 246, 0.15);  /* Faint backdrop hardware scatter */
+}
+
+/* --- Unchanged Core Mechanism Machinery --- */
+.gear-system-assembly {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.ring-gear {
+    position: absolute; width: 100%; height: 100%; border: 6px dashed rgba(59, 130, 246, 0.25); border-radius: 50%;
+    animation: spinClockwise 12s linear infinite;
+}
+
+.sun-gear {
+    position: absolute; top: 65px; left: 65px; width: 70px; height: 70px; background: #111827;
+    border: 4px dotted #00f2fe; border-radius: 50%; animation: spinCounterClockwise 3s linear infinite;
+}
+
+.planet-carrier { position: absolute; width: 100%; height: 100%; animation: spinClockwise 8s linear infinite; }
+.planet-gear {
+    position: absolute; width: 42px; height: 42px; background: #111827;
+    border: 3px dotted #10b981; border-radius: 50%; animation: spinCounterClockwise 2.5s linear infinite;
+}
+
+.planet-gear:nth-child(1) { top: 10px; left: 79px; }
+.planet-gear:nth-child(2) { bottom: 26px; left: 24px; }
+.planet-gear:nth-child(3) { bottom: 26px; right: 24px; }
+
+@keyframes spinClockwise { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes spinCounterClockwise { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }

@@ -1,0 +1,20 @@
+.control-group {
+    background: rgba(255, 255, 255, 0.01); border: 1px solid var(--glass-border);
+    padding: 16px; border-radius: var(--radius-lg); box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.control-group label { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 10px; color: #94a3b8; font-weight: 600; }
+.control-group label span { font-family: monospace; color: var(--accent); }
+
+select {
+    width: 100%; background: #0d1321; color: #f1f5f9; border: 1px solid var(--glass-border);
+    padding: 12px; border-radius: var(--radius-md); outline: none; font-size: 0.82rem; cursor: pointer; transition: var(--transition-smooth);
+}
+select:focus { border-color: var(--accent); box-shadow: 0 0 12px rgba(59, 130, 246, 0.2); }
+
+input[type="range"] {
+    width: 100%; accent-color: var(--accent); background: #0d1321; height: 6px; border-radius: 10px; outline: none; border: 1px solid var(--glass-border);
+}
+input[type="range"]::-webkit-slider-thumb {
+    width: 16px; height: 16px; border-radius: 50%; background: #ffffff; box-shadow: 0 0 10px var(--accent-glow); cursor: pointer;
+}
