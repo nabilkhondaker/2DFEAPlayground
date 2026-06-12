@@ -1,4 +1,4 @@
-<img width="600" height="96" src="view/ui/FEAPlayground2D.png">
+<img width="684" height="109" src="view/ui/FEAPlayground2D.png">
 ### Ultra-High Hardware-Accelerated 2D Finite Element Analysis Solver
 ---
 
