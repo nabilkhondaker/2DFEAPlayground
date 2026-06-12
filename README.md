@@ -1,7 +1,5 @@
-# FEA Playground 2D 🚀
+<img width="600" height="140" src="view/ui/FEAPlayground2D.png">
 ### Ultra-High Hardware-Accelerated 2D Finite Element Analysis Solver
-Developed by **Nabil Khondaker**
-
 ---
 
 ## 🛠️ Engineering Overview
