@@ -1,5 +1,6 @@
 <img width="684" height="109" src="view/ui/FEAPlayground2D.png">
-### Ultra-High Hardware-Accelerated 2D Finite Element Analysis Solver
+Ultra-High Hardware-Accelerated 2D Finite Element Analysis Solver
+
 ---
 
 ## 🛠️ Engineering Overview
