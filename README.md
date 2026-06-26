@@ -3,6 +3,18 @@ Ultra-High Hardware-Accelerated 2D Finite Element Analysis Solver
 
 ---
 
+<details>
+  <summary><b>Contents</b></summary>
+  <br/>
+
+  - [🛠️ Engineering Overview](#%EF%B8%8F-engineering-overview)
+  - [🔬 Core Engineering & Mathematical Pipeline](#-core-engineering--mathematical-pipeline)
+  - [💎 Architecture & UI Design Language](#-architecture--ui-design-language)
+  - [📂 System Architecture Blueprint](#-system-architecture-blueprint)
+  - [⚡ Mathematical Verification](#-mathematical-verification)
+
+</details>
+
 ## 🛠️ Engineering Overview
 
 **FEA Playground 2D** is an interactive, browser-native computational mechanics suite built to model, solve, and visualize 2D elastic truss and frame structures in real time. 
